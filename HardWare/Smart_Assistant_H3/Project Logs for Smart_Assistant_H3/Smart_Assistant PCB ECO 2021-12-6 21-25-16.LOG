@@ -1,0 +1,9 @@
+Added Component: Designator=R19(µç×è0603)
+Added Component: Designator=R20(µç×è0603)
+Added Pin To Net: NetName=I2C1_SCK Pin=R19-1
+Added Pin To Net: NetName=VCC_3V3 Pin=R19-2
+Added Pin To Net: NetName=VCC_3V3 Pin=R20-2
+Added Pin To Net: NetName=I2C1_SCL Pin=R20-1
+Added Net: Name=I2C1_SCL
+Added Member To Class: ClassName=Smart_Assistant Member=Component R19 4.7K
+Added Member To Class: ClassName=Smart_Assistant Member=Component R20 4.7K

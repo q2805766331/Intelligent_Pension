@@ -1,0 +1,378 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://E:\AD21 Documents\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">2021/12/7</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">15:38:48</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc" class="file"><acronym title="C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc">C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">18</td></tr>
+</table>
+</td>
+</table><a name="IDU4XA51ESTDQJ1EI4KOA5XRSQINLY43GQL4OBPHBWYVNRPMIF1VE"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDUK5R5NCJVR3TXR1I0UZBY1H2GNOWK5G0JP1BPI3YIZ14HV3F5LF">Clearance Constraint (Gap=5mil) (All),(All)</a></td>
+<td class="column2">11</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDKYYY0YFHNLG2J4YEZNN4VBKBIHRUE0GGMLHH1VOOX4D1LTG4Q1TD">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAWFLOLJNPLVQEYINEEBI23JAEDXHPWOZ2RX3XUOU0I4Q0F5YOTZP">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDZ5PTTSHBT5DSGYUIZ3OBWQCN3MMYCEOOQFQXCXHAXEK3SAPTIR1K">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDMWZLBB5VABIFHK2B3DDEWABFQWEXP1US1XJMTC4DUR3J333FH2O">Width Constraint (Min=10mil) (Max=20mil) (Preferred=10mil) (InNetClass('POWER'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDIHSVX1S3O5FGHLM13TESUZ3DWOOFU02XCOTHMKPYLIYX21GL050N">Width Constraint (Min=6mil) (Max=6mil) (Preferred=6mil) (All)</a></td>
+<td class="column2">7</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID2DL5WFUP2POFIV0RAU3RNAVYSEBL4RWZQOCCT2PI354UB2EOVBPD">Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDHNK1WOEWTZVPC2J1ZBQH10UASLB42EV1CAXOIANBMZIU0VU42HLJ">Hole Size Constraint (Min=1mil) (Max=600mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDQ1PMCZBRSIWCOAQZNS2X3MP2ICOLRZMUJS504YNJO4OLCDHCKLG">Hole To Hole Clearance (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID5N25R3TFGX10GREM3WXE3OE1BMDSPXHOSQ24UOLNYOHVEU1FRE5D">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDB25ZOE1EOIL3NIHOUQXYW1XXRD0CM2W2HJWELKEF3K1TKJ5JWPXO">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">18</td>
+</tr>
+</table><br><a name="IDUK5R5NCJVR3TXR1I0UZBY1H2GNOWK5G0JP1BPI3YIZ14HV3F5LF"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Clearance Constraint (Gap=5mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3194.856mil|Location2.X=3202.349mil|Location1.Y=3104.819mil|Location2.Y=3112.375mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3194.856mil|Location2.X=3202.349mil|Location1.Y=3104.819mil|Location2.Y=3112.375mil|Absolute=True">Clearance Constraint: (0mil &lt; 5mil) Between Arc (3185.091mil,3159.507mil) on Top Layer And Arc (3185.091mil,3159.507mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3194.856mil|Location2.X=3201.106mil|Location1.Y=3207.945mil|Location2.Y=3214.195mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3194.856mil|Location2.X=3201.106mil|Location1.Y=3207.945mil|Location2.Y=3214.195mil|Absolute=True">Clearance Constraint: (0mil &lt; 5mil) Between Arc (3185.091mil,3159.507mil) on Top Layer And Arc (3185.091mil,3159.507mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3202.735mil|Location2.X=3210.291mil|Location1.Y=3204.064mil|Location2.Y=3211.556mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3202.735mil|Location2.X=3210.291mil|Location1.Y=3204.064mil|Location2.Y=3211.556mil|Absolute=True">Clearance Constraint: (0mil &lt; 5mil) Between Arc (3185.091mil,3159.507mil) on Top Layer And Arc (3185.091mil,3159.507mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3187.785mil|Location2.X=3194.035mil|Location1.Y=3208.978mil|Location2.Y=3215.228mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3187.785mil|Location2.X=3194.035mil|Location1.Y=3208.978mil|Location2.Y=3215.228mil|Absolute=True">Clearance Constraint: (3.91mil &lt; 5mil) Between Arc (3185.091mil,3159.507mil) on Top Layer And Arc (3185.091mil,3159.507mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3176.147mil|Location2.X=3182.397mil|Location1.Y=3208.979mil|Location2.Y=3215.229mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3176.147mil|Location2.X=3182.397mil|Location1.Y=3208.979mil|Location2.Y=3215.229mil|Absolute=True">Clearance Constraint: (3.91mil &lt; 5mil) Between Arc (3185.091mil,3159.507mil) on Top Layer And Arc (3185.091mil,3159.507mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3187.785mil|Location2.X=3194.035mil|Location1.Y=3103.786mil|Location2.Y=3110.036mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3187.785mil|Location2.X=3194.035mil|Location1.Y=3103.786mil|Location2.Y=3110.036mil|Absolute=True">Clearance Constraint: (3.91mil &lt; 5mil) Between Arc (3185.091mil,3159.507mil) on Top Layer And Arc (3185.091mil,3159.507mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3176.147mil|Location2.X=3182.397mil|Location1.Y=3103.786mil|Location2.Y=3110.036mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3176.147mil|Location2.X=3182.397mil|Location1.Y=3103.786mil|Location2.Y=3110.036mil|Absolute=True">Clearance Constraint: (3.91mil &lt; 5mil) Between Arc (3185.091mil,3159.507mil) on Top Layer And Arc (3185.091mil,3159.507mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3135.766mil|Location2.X=3140.099mil|Location1.Y=3132.827mil|Location2.Y=3137.16mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3135.766mil|Location2.X=3140.099mil|Location1.Y=3132.827mil|Location2.Y=3137.16mil|Absolute=True">Clearance Constraint: (Collision &lt; 5mil) Between Arc (3185.091mil,3159.507mil) on Top Layer And Arc (3185.091mil,3159.507mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3135.766mil|Location2.X=3140.099mil|Location1.Y=3132.827mil|Location2.Y=3137.16mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3135.766mil|Location2.X=3140.099mil|Location1.Y=3132.827mil|Location2.Y=3137.16mil|Absolute=True">Clearance Constraint: (Collision &lt; 5mil) Between Arc (3185.091mil,3159.507mil) on Top Layer And Arc (3185.091mil,3159.507mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4368.875mil|Location2.X=4375.125mil|Location1.Y=3089.875mil|Location2.Y=3096.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4368.875mil|Location2.X=4375.125mil|Location1.Y=3089.875mil|Location2.Y=3096.125mil|Absolute=True">Clearance Constraint: (4mil &lt; 5mil) Between Track (4377mil,3067mil)(4377mil,3165mil) on POWER And Via (4361mil,3093mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4368.875mil|Location2.X=4375.125mil|Location1.Y=3118.875mil|Location2.Y=3125.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4368.875mil|Location2.X=4375.125mil|Location1.Y=3118.875mil|Location2.Y=3125.125mil|Absolute=True">Clearance Constraint: (4mil &lt; 5mil) Between Track (4377mil,3067mil)(4377mil,3165mil) on POWER And Via (4361mil,3122mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDIHSVX1S3O5FGHLM13TESUZ3DWOOFU02XCOTHMKPYLIYX21GL050N"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Width Constraint (Min=6mil) (Max=6mil) (Preferred=6mil) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3130.442mil|Location2.X=3151.158mil|Location1.Y=3149.149mil|Location2.Y=3169.992mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3130.442mil|Location2.X=3151.158mil|Location1.Y=3149.149mil|Location2.Y=3169.992mil|Absolute=True">Width Constraint: Arc (3185.091mil,3159.507mil) on Top Layer Actual Width = 17.716mil, Target Width = 6mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3219.024mil|Location2.X=3239.741mil|Location1.Y=3149.022mil|Location2.Y=3169.865mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3219.024mil|Location2.X=3239.741mil|Location1.Y=3149.022mil|Location2.Y=3169.865mil|Absolute=True">Width Constraint: Arc (3185.091mil,3159.507mil) on Top Layer Actual Width = 17.716mil, Target Width = 6mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3185.521mil|Location2.X=3217.595mil|Location1.Y=3209.872mil|Location2.Y=3234.526mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3185.521mil|Location2.X=3217.595mil|Location1.Y=3209.872mil|Location2.Y=3234.526mil|Absolute=True">Width Constraint: Arc (3185.091mil,3159.507mil) on Top Layer Actual Width = 21.654mil, Target Width = 6mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3118.08mil|Location2.X=3145.416mil|Location1.Y=3180.386mil|Location2.Y=3205.039mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3118.08mil|Location2.X=3145.416mil|Location1.Y=3180.386mil|Location2.Y=3205.039mil|Absolute=True">Width Constraint: Arc (3185.091mil,3159.507mil) on Top Layer Actual Width = 21.654mil, Target Width = 6mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3206.791mil|Location2.X=3237.587mil|Location1.Y=3201.358mil|Location2.Y=3226.012mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3206.791mil|Location2.X=3237.587mil|Location1.Y=3201.358mil|Location2.Y=3226.012mil|Absolute=True">Width Constraint: Arc (3185.091mil,3159.507mil) on Top Layer Actual Width = 21.654mil, Target Width = 6mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3232.639mil|Location2.X=3258.302mil|Location1.Y=3124.64mil|Location2.Y=3149.294mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3232.639mil|Location2.X=3258.302mil|Location1.Y=3124.64mil|Location2.Y=3149.294mil|Absolute=True">Width Constraint: Arc (3185.091mil,3159.507mil) on Top Layer Actual Width = 21.654mil, Target Width = 6mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.559mil|Location2.X=3170.433mil|Location1.Y=3092.496mil|Location2.Y=3117.15mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.559mil|Location2.X=3170.433mil|Location1.Y=3092.496mil|Location2.Y=3117.15mil|Absolute=True">Width Constraint: Arc (3185.091mil,3159.507mil) on Top Layer Actual Width = 21.654mil, Target Width = 6mil</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

@@ -1,0 +1,7 @@
+Added Differential Pair: Name=USB0_DATA
+Added Differential Pair: Name=USB2_DATA
+Added Differential Pair: Name=USB3_DATA
+Added Member To Class: ClassName=Smart_Assistant Member=Component C9 10uF
+Added Member To Class: ClassName=Smart_Assistant Member=Component C11 0.1uF
+Added Member To Class: ClassName=Smart_Assistant Member=Component C13 100pF
+Added Member To Class: ClassName=Smart_Assistant Member=Component R6 1K

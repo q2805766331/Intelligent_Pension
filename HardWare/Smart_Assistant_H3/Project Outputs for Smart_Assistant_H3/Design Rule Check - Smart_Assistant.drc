@@ -1,0 +1,60 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\Public\Documents\Altium\Projects\Smart_Assistant_H3\Smart_Assistant.PcbDoc
+Date     : 2021/12/7
+Time     : 15:38:48
+
+Processing Rule : Clearance Constraint (Gap=5mil) (All),(All)
+   Violation between Clearance Constraint: (0mil < 5mil) Between Arc (3185.091mil,3159.507mil) on Top Layer And Arc (3185.091mil,3159.507mil) on Top Layer 
+   Violation between Clearance Constraint: (0mil < 5mil) Between Arc (3185.091mil,3159.507mil) on Top Layer And Arc (3185.091mil,3159.507mil) on Top Layer 
+   Violation between Clearance Constraint: (0mil < 5mil) Between Arc (3185.091mil,3159.507mil) on Top Layer And Arc (3185.091mil,3159.507mil) on Top Layer 
+   Violation between Clearance Constraint: (3.91mil < 5mil) Between Arc (3185.091mil,3159.507mil) on Top Layer And Arc (3185.091mil,3159.507mil) on Top Layer 
+   Violation between Clearance Constraint: (3.91mil < 5mil) Between Arc (3185.091mil,3159.507mil) on Top Layer And Arc (3185.091mil,3159.507mil) on Top Layer 
+   Violation between Clearance Constraint: (3.91mil < 5mil) Between Arc (3185.091mil,3159.507mil) on Top Layer And Arc (3185.091mil,3159.507mil) on Top Layer 
+   Violation between Clearance Constraint: (3.91mil < 5mil) Between Arc (3185.091mil,3159.507mil) on Top Layer And Arc (3185.091mil,3159.507mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 5mil) Between Arc (3185.091mil,3159.507mil) on Top Layer And Arc (3185.091mil,3159.507mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 5mil) Between Arc (3185.091mil,3159.507mil) on Top Layer And Arc (3185.091mil,3159.507mil) on Top Layer 
+   Violation between Clearance Constraint: (4mil < 5mil) Between Track (4377mil,3067mil)(4377mil,3165mil) on POWER And Via (4361mil,3093mil) from Top Layer to Bottom Layer 
+   Violation between Clearance Constraint: (4mil < 5mil) Between Track (4377mil,3067mil)(4377mil,3165mil) on POWER And Via (4361mil,3122mil) from Top Layer to Bottom Layer 
+Rule Violations :11
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=10mil) (Max=20mil) (Preferred=10mil) (InNetClass('POWER'))
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=6mil) (Max=6mil) (Preferred=6mil) (All)
+   Violation between Width Constraint: Arc (3185.091mil,3159.507mil) on Top Layer Actual Width = 17.716mil, Target Width = 6mil
+   Violation between Width Constraint: Arc (3185.091mil,3159.507mil) on Top Layer Actual Width = 17.716mil, Target Width = 6mil
+   Violation between Width Constraint: Arc (3185.091mil,3159.507mil) on Top Layer Actual Width = 21.654mil, Target Width = 6mil
+   Violation between Width Constraint: Arc (3185.091mil,3159.507mil) on Top Layer Actual Width = 21.654mil, Target Width = 6mil
+   Violation between Width Constraint: Arc (3185.091mil,3159.507mil) on Top Layer Actual Width = 21.654mil, Target Width = 6mil
+   Violation between Width Constraint: Arc (3185.091mil,3159.507mil) on Top Layer Actual Width = 21.654mil, Target Width = 6mil
+   Violation between Width Constraint: Arc (3185.091mil,3159.507mil) on Top Layer Actual Width = 21.654mil, Target Width = 6mil
+Rule Violations :7
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=1mil) (Max=600mil) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mil) (All)
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+
+Violations Detected : 18
+Waived Violations : 0
+Time Elapsed        : 00:00:01
